@@ -16,6 +16,8 @@ This is a demo showing how to transcribe an .m4a audio file using [OpenAI Whispe
 * pytorch == 2.0.1
 * transformers == 4.29.2
 
+See [requirements.txt](./requirements.txt)
+
 ### Proxy usage
 
 Please set ```REQUESTS_CA_BUNDLE``` according. E.g.
@@ -23,8 +25,6 @@ Please set ```REQUESTS_CA_BUNDLE``` according. E.g.
 ```
 REQUESTS_CA_BUNDLE="/home/<user>/certs/cacert.pem"
 ```
-
-See [requirements.txt](./requirements.txt)
 
 ## Preprocessing
 
