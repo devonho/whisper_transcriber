@@ -2,6 +2,7 @@ import os
 import json
 from transformers import pipeline
 from datasets import Dataset, Audio
+import torch
 
 def load_magnets_dataset():
     path = './data'
@@ -11,6 +12,7 @@ def load_magnets_dataset():
 
 ds = load_magnets_dataset()
 sample = ds[0]["audio"]
+device = "cuda:0" if torch.cuda.device_count() > 0 else "cpu"
 
 transcriptions = []
 
@@ -18,7 +20,7 @@ pipe = pipeline(
   "automatic-speech-recognition",
   model="openai/whisper-large",
   chunk_length_s=30,
-  device="cpu"
+  device=device
 )
 
 txt = pipe(sample.copy(), batch_size=8)["text"]
